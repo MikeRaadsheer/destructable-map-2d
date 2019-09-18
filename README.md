@@ -20,16 +20,13 @@ Wat wil je bereiken met dit project? Formuleer dit kort, krachtig en haalbaar.
 - etc. etc.
 
 ## Planning 
-Je hebt grofweg 2 weken, hoe deel je deze twee weken in. Wat plan je wanneer om precies te doen?
+This repo is ment to be a 2 week project trying to 
 
-| | maandag | dinsdag | woensdag | donderdag | vrijdag |
-| --- | --- | --- | --- | --- | --- |
+| | Monday | Tuesday | Wednesday | Thursday | Friday |
+| --- | Reseach | Reseach | Testing | --- | Reseach |
+| studying Free Draw | --- | --- | --- | --- | --- |
 |week 1 |
 |week 2 |
 
-## Bronnen
-Welke bronnen heb je gebruikt? Zowel youtube filmpjes als artikelen
-
-- [The Guide To Game Design](link)
-- [Alleatoric Algorithms](link)
-- [Flood-Fill Wikipedia](link)
+## Sources
+- [Free Draw](https://assetstore.unity.com/packages/tools/painting/free-draw-simple-drawing-on-sprites-2d-textures-113131)
