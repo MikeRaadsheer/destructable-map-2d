@@ -5,12 +5,12 @@ using UnityEngine.EventSystems;
 namespace FreeDraw
 {
     [RequireComponent(typeof(SpriteRenderer))]
-    [RequireComponent(typeof(Collider2D))]
+    [RequireComponent(typeof(PolygonCollider2D))]
 
     public class Drawable : MonoBehaviour
     {
         public static Color Pen_Colour = new Color(1,1,1,0);
-        public static int Pen_Width = 3;
+        public static int Pen_Width = 30;
 
 
         public delegate void Brush_Function(Vector2 world_position);
@@ -34,7 +34,7 @@ namespace FreeDraw
         Vector2 previous_drag_position;
         Color[] clean_colours_array;
         Color transparent;
-        Color32[] cur_colors;
+        Color[] cur_colors;
         bool mouse_was_previously_held_down = false;
         bool no_drawing_on_current_drag = false;
 
@@ -53,7 +53,7 @@ namespace FreeDraw
             Vector2 pixel_pos = WorldToPixelCoordinates(world_position);
 
             // 2. Make sure our variable for pixel array is updated in this frame
-            cur_colors = drawable_texture.GetPixels32();
+            cur_colors = drawable_texture.GetPixels();
 
             ////////////////////////////////////////////////////////////////
             // FILL IN CODE BELOW HERE
@@ -69,12 +69,6 @@ namespace FreeDraw
                 // FILL IN WHATEVER YOU WANT TO DO HERE
                 // Maybe mark multiple pixels to colour?
                 MarkPixelsToColour(pixel_pos, Pen_Width, Pen_Colour);
-            }
-            else
-            {
-                // THE USER IS DRAGGING
-                // Should we do stuff between the previous mouse position and the current one?
-                ColourBetween(previous_drag_position, pixel_pos, Pen_Width, Pen_Colour);
             }
             ////////////////////////////////////////////////////////////////
 
@@ -96,7 +90,7 @@ namespace FreeDraw
         {
             Vector2 pixel_pos = WorldToPixelCoordinates(world_point);
 
-            cur_colors = drawable_texture.GetPixels32();
+            cur_colors = drawable_texture.GetPixels();
 
             if (previous_drag_position == Vector2.zero)
             {
@@ -227,7 +221,7 @@ namespace FreeDraw
         }
         public void ApplyMarkedPixelChanges()
         {
-            drawable_texture.SetPixels32(cur_colors);
+            drawable_texture.SetPixels(cur_colors);
             drawable_texture.Apply();
         }
 
